@@ -1,0 +1,78 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<fstream.h>
+void main()
+{
+   clrscr();
+   int a,b,p,abs=0,pre=0;
+   char name[100][100],reg;
+   cout<<"---------------------TEACHERS REGESTERS--------------------------\n";
+   cout<<"1.-------------------list of teachers-----------press:-1\n";
+   cout<<"2.-----------------attendence of teacher--------press:-2\n";
+   cout<<"3.--------------total members of attendence-----press:-3\n";
+   cin>>a;
+   if(a==1)
+   {
+   cout<<"ENTER 1 FOR CREATE LIST \n";
+   cout<<"ENTER 2 FOR VIEW LISt \n";
+   cin>>b;
+   if(b==1)
+   {
+   cout<<"ENTER MNAME OF TEACHER \n";
+   ofstream m("filex.txt");
+   for(int i=1;i<=6;i++)
+   {
+   cin>>name[i];
+   m<<name[i];
+   m<<endl;
+   }
+}
+   else if(b==2)
+   {
+   cout<<"LIST OF TEACHER IS:\n";
+   ifstream m("filex.txt");
+   for(int i=1;i<=6;i++)
+   {
+   cout<<name[i]<<endl;
+   m.close();
+   }
+ }
+}
+   else if(a==2)
+  {
+  ofstream m("filex.txt");
+  cout<<"ENTER p FOR PRESENT AND A FOR ABSENT: \n";
+  for(int i=1;i<=6;i++)
+  {
+  cout<<"name of teacher is"<<name[i];
+  cin>>reg;
+  if(reg==a)
+  {
+  abs=abs+1;
+  }
+  else if(reg==p)
+  {
+  pre=pre+1;
+  }
+  m<<abs<<endl;
+  m<<pre<<endl;
+  }
+  for(i=1;i<=6;i++)
+  {
+  cout<<"present is:"<<pre<<endl;
+  cout<<"absent is:"<<abs<<endl;
+  }
+}
+  else if(a==3)
+  {
+  cout<<"total attendence is:\n";
+  ofstream m("filex.txt");
+  for(int i=1;i<=6;i++)
+  {
+  cout<<name[i]<<pre<<endl;
+  }
+  m.close();
+  }
+  getch();
+  }
